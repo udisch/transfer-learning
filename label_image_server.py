@@ -117,7 +117,6 @@ def label_image(file_name, file):
 def predict():
   if flask.request.method == "POST":
         if flask.request.files.get("image"):
-            # read the image in PIL format
             image_obj = flask.request.files["image"]
             file_name = image_obj.filename
             file = image_obj.read()
