@@ -1,6 +1,7 @@
 An image classifier for several bird species. The species list can be found in `model\output_labels.txt`.
 
 Based on TensorFlow's transfer learning tutorial, with inception v3 as the base model: https://www.tensorflow.org/hub/tutorials/image_retraining
+
 Trained using images obtained from Google image searches, with https://github.com/hardikvasa/google-images-download
 
 Usage:
