@@ -24,6 +24,7 @@ import argparse
 import numpy as np
 import tensorflow as tf
 import flask
+from flask import render_template
 
 # initialize Flask
 app = flask.Flask(__name__)
@@ -127,6 +128,11 @@ def predict():
   else:
     return "Bad request"
   
+
+@app.route("/")
+def index():
+  return render_template("index.html")
+
 
 if __name__ == "__main__":
   graph = load_graph(model_file)
