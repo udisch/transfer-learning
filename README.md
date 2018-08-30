@@ -4,6 +4,8 @@ Based on TensorFlow's transfer learning tutorial, with inception v3 as the base 
 
 Trained using images obtained from Google image searches, with https://github.com/hardikvasa/google-images-download
 
+git-lfs is used for storing the model, it must be installed https://git-lfs.github.com
+
 Usage:
 ======
 
