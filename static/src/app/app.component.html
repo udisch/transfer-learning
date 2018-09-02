@@ -4,7 +4,7 @@
 <img [src]="imageData" width="300" height="300">
 </div>
 
-<input type="file" name="image" ng2FileSelect [uploader]="uploader" />
+<input type="file" name="image" ng2FileSelect [uploader]="uploader" accept="image/*"/>
 
 <button type="button" class="btn btn-success btn-s" 
   (click)="uploader.uploadAll()" 
