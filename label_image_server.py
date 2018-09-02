@@ -25,9 +25,12 @@ import numpy as np
 import tensorflow as tf
 import flask
 from flask import render_template
+from flask_cors import CORS
 
 # initialize Flask
 app = flask.Flask(__name__)
+# TODO more restrictive configuration
+CORS(app)
 
 # globals
 graph = None
@@ -124,9 +127,9 @@ def predict():
             predictions = label_image(file_name, file)
             return flask.jsonify(predictions)
         else:
-          return "Missing Image"
+          return "Missing Image", 400
   else:
-    return "Bad request"
+    return "Bad request", 400
   
 
 @app.route("/")
@@ -134,8 +137,10 @@ def index():
   return render_template("index.html")
 
 
+graph = load_graph(model_file)
+print("Loaded model")
+
+# if loaded by python standalone and not wsgi
 if __name__ == "__main__":
-  graph = load_graph(model_file)
-  print("Loaded model")
   app.run()
   
