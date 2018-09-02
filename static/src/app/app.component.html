@@ -1,0 +1,24 @@
+
+<h2>Bird Identifier</h2>
+<div>
+<img [src]="imageData" width="300" height="300">
+</div>
+
+<input type="file" name="image" ng2FileSelect [uploader]="uploader" />
+
+<button type="button" class="btn btn-success btn-s" 
+  (click)="uploader.uploadAll()" 
+  [disabled]="!uploader.getNotUploadedItems().length" >
+      Upload Image
+</button>
+
+<p></p>
+<div>
+  Prediction: <br>
+  <table>
+    <tr *ngFor="let score of predictionScores">
+      <td>{{ score.label }}</td>
+      <td>{{ score.probability | number: '.3' }}</td>
+    </tr>
+  </table>
+</div>
