@@ -11,16 +11,17 @@ const URL = 'http://localhost:5000/api/predict';
 export class AppComponent {
   title = 'app';
   imageData: string = "";
-  predictionScores: any;
+  predictionScores: any = [];
 
   public uploader: FileUploader = new FileUploader({url: URL, itemAlias: 'image'});
   
   constructor() { }
 
   ngOnInit() {
-    const fileReader: FileReader = new FileReader()
     this.uploader.onAfterAddingFile = (file) => { 
+      this.predictionScores = [];
       file.withCredentials = false; 
+      const fileReader: FileReader = new FileReader();
       fileReader.onload = e => this.imageData = fileReader.result;
       fileReader.readAsDataURL(file._file); 
     };
