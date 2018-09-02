@@ -117,7 +117,7 @@ def label_image(file_name, file):
     predictions.append({"label": labels[i], "probability": float(results[i])})
   return predictions
 
-@app.route("/predict", methods=["POST"])
+@app.route("/api/predict", methods=["POST"])
 def predict():
   if flask.request.method == "POST":
         if flask.request.files.get("image"):
