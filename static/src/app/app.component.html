@@ -7,7 +7,7 @@
 <input type="file" name="image" ng2FileSelect [uploader]="uploader" accept="image/*"/>
 
 <button type="button" class="btn btn-success btn-s" 
-  (click)="uploader.uploadAll()" 
+  (click)="upload()" 
   [disabled]="!uploader.getNotUploadedItems().length" >
       Upload Image
 </button>
@@ -22,3 +22,4 @@
     </tr>
   </table>
 </div>
+<ngx-spinner></ngx-spinner>

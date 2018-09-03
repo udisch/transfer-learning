@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { NgxSpinnerService } from 'ngx-spinner';
 
-const URL = 'http://localhost:5000/api/predict';
+const URL = '/api/predict';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent {
 
   public uploader: FileUploader = new FileUploader({url: URL, itemAlias: 'image'});
   
-  constructor() { }
+  constructor(private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.uploader.onAfterAddingFile = (file) => { 
@@ -27,8 +28,14 @@ export class AppComponent {
     };
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       console.log('ImageUpload:uploaded:', item, status, response);  
+      this.spinner.hide();
       this.predictionScores = JSON.parse(response);
      };
- 	}
+   }
+   
+   upload() {
+    this.spinner.show(); 
+    this.uploader.uploadAll();
+   }
   
 }
