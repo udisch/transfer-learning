@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload/ng2-file-upload';
 
-const URL = 'http://localhost:5000/api/predict';
+const URL = '/api/predict';
 
 @Component({
   selector: 'app-root',
