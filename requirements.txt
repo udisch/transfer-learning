@@ -1,19 +1,21 @@
+-i https://pypi.org/simple
 absl-py==0.4.1
 astor==0.7.1
 click==6.7
-Flask==1.0.2
-Flask-Cors==3.0.6
+flask-cors==3.0.6
+flask==1.0.2
 gast==0.2.0
 grpcio==1.14.1
+gunicorn==19.9.0
 itsdangerous==0.24
-Jinja2==2.10
-Markdown==2.6.11
-MarkupSafe==1.0
+jinja2==2.10
+markdown==2.6.11
+markupsafe==1.0
 numpy==1.14.5
 protobuf==3.6.1
 six==1.11.0
 tensorboard==1.10.0
 tensorflow==1.10.1
 termcolor==1.1.0
-uWSGI==2.0.17.1
-Werkzeug==0.14.1
+werkzeug==0.14.1
+wheel==0.31.1; python_version >= '3'
