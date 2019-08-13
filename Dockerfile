@@ -12,6 +12,6 @@ RUN pip install -r requirements.txt
 
 EXPOSE 8000
 
-# Run app.py when the container launches
+# Run application using gunicorn WSGI server
 CMD ["gunicorn", "-w1", "--bind=0.0.0.0", "label_image_server:app"]
 

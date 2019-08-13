@@ -1,8 +1,8 @@
 version: "3"
 services:
   frontend:
-    image: bird-nginx
+    image: udisch/bird-nginx
     ports:
       - "8080:80"
   backend:
-    image: bird-backend
+    image: udisch/bird-backend

@@ -36,19 +36,7 @@ https://tecadmin.net/install-angular-on-ubuntu/
 2) pip install -r requirements.txt
 3) to run backend: gunicorn -w1 label_image_server:app
 4) frontend on static folder: npm install, use angular cli for build
-5) nginx:
-location / {
-                # First attempt to serve request as file, then
-                # as directory, then fall back to displaying a 404.
-                try_files $uri $uri/ =404;
-           }
-
-location /api/predict {
-                proxy_pass http://127.0.0.1:8000;
-                proxy_set_header Host $host;
-                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        }
-
+5) nginx
 
 * if gunicorn is endlessly starting workers - not enough memory
 
