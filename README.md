@@ -25,3 +25,31 @@ Using curl:
 
 `curl -X POST -F image=@some_bird.jpg http://localhost:5000/predict`
 
+
+Deployment
+==========
+
+https://tecadmin.net/install-angular-on-ubuntu/
+
+1) Make sure model folder contains the full model and not git lfs shortcut
+1) create virtualenv
+2) pip install -r requirements.txt
+3) to run backend: gunicorn -w1 label_image_server:app
+4) frontend on static folder: npm install, use angular cli for build
+5) nginx:
+location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+           }
+
+location /api/predict {
+                proxy_pass http://127.0.0.1:8000;
+                proxy_set_header Host $host;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+
+* if gunicorn is endlessly starting workers - not enough memory
+
+
